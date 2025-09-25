@@ -1,0 +1,853 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Global Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #545b62;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.error {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.success {
+  color: #28a745;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Pinterest-style navbar */
+.pinterest-navbar {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 12px 0;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #e60023;
+  text-decoration: none;
+  margin-right: 8px;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #c8001a;
+  text-decoration: none;
+  transform: scale(1.05);
+}
+
+.navbar-brand:hover .logo-icon {
+  transform: rotate(360deg);
+  box-shadow: 0 6px 20px rgba(230, 0, 35, 0.5);
+}
+
+.logo-icon {
+  font-size: 2.2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #e60023 0%, #ff6b6b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: 3px solid #e60023;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(230, 0, 35, 0.3);
+  transition: all 0.3s ease;
+}
+
+.logo-text {
+  background: linear-gradient(135deg, #e60023 0%, #c8001a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: -0.5px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.navbar-nav-left {
+  display: flex;
+  gap: 8px;
+}
+
+.navbar-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 24px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: #333;
+}
+
+.nav-btn:hover {
+  background-color: #f1f3f4;
+  text-decoration: none;
+  color: #333;
+}
+
+.nav-btn-primary {
+  background-color: #e60023;
+  color: white;
+}
+
+.nav-btn-primary:hover {
+  background-color: #c8001a;
+  color: white;
+}
+
+.nav-btn-logout {
+  color: #666;
+}
+
+.nav-btn-logout:hover {
+  background-color: #ffebee;
+  color: #e60023;
+}
+
+.nav-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 24px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.nav-profile:hover {
+  background-color: #f1f3f4;
+  text-decoration: none;
+  color: #333;
+}
+
+.nav-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nav-avatar-placeholder {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e60023;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nav-username {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Legacy navbar styles for backward compatibility */
+.navbar {
+  background-color: #343a40;
+  color: white;
+  padding: 1rem 0;
+  margin-bottom: 20px;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Pinterest-style masonry grid */
+.pinterest-grid {
+  columns: 5;
+  column-gap: 20px;
+  padding: 20px 0;
+}
+
+@media (max-width: 1200px) {
+  .pinterest-grid { columns: 4; }
+}
+
+@media (max-width: 900px) {
+  .pinterest-grid { columns: 3; }
+}
+
+@media (max-width: 600px) {
+  .pinterest-grid { columns: 2; }
+}
+
+@media (max-width: 400px) {
+  .pinterest-grid { columns: 1; }
+}
+
+.pinterest-pin {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  margin-bottom: 20px;
+  break-inside: avoid;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.pinterest-pin:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Image container for image pins */
+.pin-image-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.pin-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px 16px 0 0;
+}
+
+.pin-image-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background-color: #f8f9fa;
+  color: #6c757d;
+}
+
+/* Content preview for non-image pins */
+.pin-content-preview {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.pin-type-icon {
+  text-align: center;
+}
+
+/* Overlay with action buttons */
+.pin-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pinterest-pin:hover .pin-overlay {
+  opacity: 1;
+}
+
+.pin-view-btn {
+  background: #e60023;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.pin-view-btn:hover {
+  background: #c8001a;
+  color: white;
+  text-decoration: none;
+}
+
+.pin-delete-btn {
+  background: rgba(255,255,255,0.9);
+  color: #333;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.pin-delete-btn:hover {
+  background: white;
+  color: #e60023;
+}
+
+/* Pin information */
+.pin-info {
+  padding: 16px;
+}
+
+.pin-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pin-tags {
+  margin: 8px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #f1f3f4;
+  color: #5f6368;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: lowercase;
+}
+
+.pin-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #767676;
+}
+
+.pin-author {
+  font-weight: 500;
+}
+
+.pin-date {
+  color: #999;
+}
+
+/* Legacy styles for backward compatibility */
+.pin-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.pin-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.pin-content {
+  padding: 15px;
+}
+
+.pin-url {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.pin-url:hover {
+  text-decoration: underline;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6c757d;
+}
+
+.empty-state h3 {
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+/* Board styles for Pinterest-like layout */
+.boards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 20px 0;
+}
+
+.board-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.board-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.board-preview {
+  position: relative;
+  height: 180px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  overflow: hidden;
+}
+
+.board-preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 100%;
+  gap: 2px;
+  padding: 8px;
+}
+
+.preview-cell {
+  background: rgba(255,255,255,0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.preview-cell:nth-child(1) {
+  background: rgba(255,255,255,0.3);
+}
+
+.preview-cell:nth-child(2) {
+  background: rgba(255,255,255,0.15);
+}
+
+.preview-cell:nth-child(3) {
+  background: rgba(255,255,255,0.25);
+}
+
+.preview-cell:nth-child(4) {
+  background: rgba(255,255,255,0.2);
+}
+
+.board-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.board-card:hover .board-overlay {
+  opacity: 1;
+}
+
+.board-view-btn {
+  background: #e60023;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 24px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.board-view-btn:hover {
+  background: #c8001a;
+  color: white;
+  text-decoration: none;
+  transform: scale(1.05);
+}
+
+.board-delete-btn {
+  background: rgba(255,255,255,0.9);
+  color: #333;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.board-delete-btn:hover {
+  background: white;
+  color: #e60023;
+  transform: scale(1.1);
+}
+
+.board-info {
+  padding: 20px;
+}
+
+.board-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #333;
+  line-height: 1.3;
+}
+
+.board-description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.board-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  font-size: 12px;
+  color: #767676;
+}
+
+.board-author, .board-collaborators {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.board-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 16px;
+}
+
+/* Pinterest-style forms */
+.pinterest-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 200px);
+  padding: 40px 20px;
+}
+
+.pinterest-form-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 32px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e5e9;
+  border-radius: 16px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #e60023;
+  box-shadow: 0 0 0 3px rgba(230, 0, 35, 0.1);
+}
+
+.form-control:hover {
+  border-color: #c1c7cd;
+}
+
+/* Radio button styling */
+input[type="radio"] {
+  margin-right: 6px;
+  accent-color: #e60023;
+}
+
+/* File input styling */
+input[type="file"] {
+  padding: 8px 12px;
+  border: 2px dashed #e1e5e9;
+  border-radius: 12px;
+  background-color: #f9fafb;
+  cursor: pointer;
+}
+
+input[type="file"]:hover {
+  border-color: #e60023;
+  background-color: #fff5f5;
+}
+
+/* Button improvements */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #e60023;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #c8001a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(230, 0, 35, 0.3);
+}
+
+.btn-secondary {
+  background-color: #f1f3f4;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background-color: #e8eaed;
+  color: #333;
+  text-decoration: none;
+}
