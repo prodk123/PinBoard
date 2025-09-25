@@ -45,7 +45,7 @@ const AddBoard = ({ user }) => {
   };
 
   return (
-    <div className="card" style={{ maxWidth: '600px', margin: '40px auto' }}>
+    <div className="card" style={{ maxWidth: '600px', margin: '60px auto' }}>
       <h2 style={{ marginBottom: '30px' }}>Create New Board</h2>
       
       <form onSubmit={handleSubmit}>
